@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="Hobbies" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="B2C4_inleveropdracht_1.HobbyPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="infoLabel" LineBreakMode="WordWrap" FontSize="16" Text="Select one of the hobbies listed below to check the tips and info given by our communoity" WidthRequest="350" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
+            <ListView x:Name="listHobbies" HasUnevenRows="True" ItemsSource="{Binding hobbyList}" ItemSelected="ListView_ItemSelected" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.RowSpan="1"
+                           Text="{Binding hobbyName}"
+                           FontAttributes="Bold" FontSize="16"
+                            />
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button x:Name="addNewHobby" Text="+" TextColor="White" CornerRadius="50" Clicked="addNewHobby_Clicked" BackgroundColor="Orchid" FontSize="40" WidthRequest="70" HeightRequest="70" Margin="0,0,30,30" HorizontalOptions="End"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

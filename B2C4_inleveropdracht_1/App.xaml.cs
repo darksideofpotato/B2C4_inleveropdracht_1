@@ -10,7 +10,7 @@ namespace B2C4_inleveropdracht_1
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

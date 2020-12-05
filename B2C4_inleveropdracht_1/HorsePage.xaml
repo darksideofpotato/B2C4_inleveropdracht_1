@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="B2C4_inleveropdracht_1.HorsePage" Title="Tips">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="listTips" HasUnevenRows="True" ItemsSource="{Binding tipsList}" ItemSelected="listTips_ItemSelected" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.RowSpan="1"
+                           Text="{Binding title}"
+                           FontAttributes="Bold" FontSize="16"
+                            />
+                                <Image Grid.Column="1"
+                           Source="{Binding level}" Aspect="AspectFit" 
+                                       HeightRequest="50" WidthRequest="1"
+                           />
+                                <Label
+                           Grid.Column="3"
+                           Grid.Row="0"
+                           Text="{Binding description}"
+                           VerticalOptions="End" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button x:Name="addNewTip" Text="+" TextColor="White" CornerRadius="50" Clicked="addNewTip_Clicked" BackgroundColor="Orchid" FontSize="40" WidthRequest="70" HeightRequest="70" Margin="0,0,30,30" HorizontalOptions="End"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
