@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using Foundation;
@@ -23,6 +24,11 @@ namespace B2C4_inleveropdracht_1.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            string dBName = "inleveropdrachtDB.sqlite";
+            string folderParth = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "..", "Library");
+            string fullPath = Path.Combine(folderParth, dBName);
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
