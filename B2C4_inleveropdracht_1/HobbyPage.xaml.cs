@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,25 +13,24 @@ namespace B2C4_inleveropdracht_1
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HobbyPage : ContentPage
     {
-        public IList<Hobby> hobbyList { get; set; }
 
-        public HobbyPage(IList<Hobby> hobbys)
+        public HobbyPage()
         {
             InitializeComponent();
+        }
 
-            if (hobbys != null)
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            
+            using (SQLiteConnection connection = new SQLiteConnection(App.DatabaseLocation))
             {
-                hobbyList = hobbys;
-            }
-            else
-            {
-                hobbyList = new List<Hobby>();
-                hobbyList.Add(new Hobby("Horse riding"));
-             
-            }
+                connection.CreateTable<Hobby>();
+                var hobbies = connection.Table<Hobby>().ToList();
+                listHobbies.ItemsSource = hobbies;
 
 
-            BindingContext = this;
+            }
         }
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -40,7 +40,7 @@ namespace B2C4_inleveropdracht_1
 
             Console.WriteLine(theItem.hobbyName);
 
-            Navigation.PushAsync(new HorsePage(theItem , null, null));
+            Navigation.PushAsync(new HorsePage(theItem));
             
         }
 
@@ -51,7 +51,7 @@ namespace B2C4_inleveropdracht_1
 
         private void addNewHobby_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AddHobby(hobbyList));
+            Navigation.PushAsync(new AddHobby());
         }
     }
 }

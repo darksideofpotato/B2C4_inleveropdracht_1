@@ -7,9 +7,9 @@
             <Label x:Name="titleHobby" Text="x" FontSize="30" HorizontalOptions="Center"></Label>
             <Label x:Name="titleTip" Text="x" FontSize="28" HorizontalOptions="Center"></Label>
             <Image x:Name="levelImage" Source="x"></Image>
-            <Image x:Name ="uploadedImage" Source="x"></Image>
-            <Label x:Name="tipInfo"  Text="x" HorizontalOptions="Center"></Label>
-            <Button x:Name="linkTip" Clicked="linkTip_Clicked" CornerRadius="50" TextColor="White" BackgroundColor="#2196F3" Text="Check Video" HorizontalOptions="Center"></Button>
+            <Image x:Name ="uploadedImage" Source="x" HorizontalOptions="Center" HeightRequest="300" WidthRequest="300"></Image>
+            <Label x:Name="tipInfo"  Text="x" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
+            <Button x:Name="linkTip" Clicked="linkTip_Clicked" CornerRadius="50" TextColor="White" BackgroundColor="#2196F3" Text="Check Link" HorizontalOptions="Center"></Button>
             <Button x:Name="shareTip" CornerRadius="50" TextColor="White" BackgroundColor="#2196F3" Text="Share" HorizontalOptions="Center"></Button>
         </StackLayout>
     </ContentPage.Content>

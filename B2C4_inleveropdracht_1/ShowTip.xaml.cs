@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,9 +19,14 @@ namespace B2C4_inleveropdracht_1
         {
             InitializeComponent();
 
-            titleHobby.Text = tip.hobby.hobbyName;
-            titleTip.Text = tip.tip.title;
-            levelImage.Source = tip.tip.level;
+            titleHobby.Text = tip.hobbyName;
+            titleTip.Text = tip.title;
+            levelImage.Source = tip.level;
+            uploadedImage.Source = ImageSource.FromStream(() =>
+            {
+                var ms = new MemoryStream(tip.imageLink);
+                return ms;
+            });
             tipInfo.Text = tip.tipInfo;
             Thetip = tip;
 

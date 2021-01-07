@@ -7,67 +7,62 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Data;
+using SQLite;
+using System.Diagnostics;
+
 
 namespace B2C4_inleveropdracht_1
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HorsePage : ContentPage
     {
-        public IList<Tip> tipsList { get; set; }
-        public IList<FullTip> fullTipsList { get; set; }
+        static List<FullTip> tips;
+
         public Hobby theHobby;
-        public HorsePage(Hobby hobby ,IList<Tip> tip, IList<FullTip> fulltip)
-        {
-           
+        public HorsePage(Hobby hobby)
+        {       
             InitializeComponent();
-            theHobby = hobby;
-            if (tip != null)
+            theHobby = hobby;       
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            using (SQLiteConnection connection = new SQLiteConnection(App.DatabaseLocation))
             {
-                tipsList = tip;
-                fullTipsList = fulltip;
-                Console.WriteLine("hoi");
-            }
-            else
-            {
-                tipsList = new List<Tip>();
-                fullTipsList = new List<FullTip>();
-                if (hobby.hobbyName == "Horse riding") 
-                { 
-                    tipsList.Add(new Tip("steering", "A useful tip to get started on steering", "beginner.PNG"));
-                    Tip firstTip = tipsList[0];
-                    Console.WriteLine(tipsList[0]);
-                    fullTipsList.Add(new FullTip(hobby, firstTip, "http://bokt.nl", "xx", "lorum ipsum"));
-                }
-                else
+                tips = new List<FullTip>();
+                connection.CreateTable<FullTip>();
+                var fullTip = connection.Table<FullTip>().ToList();
+                var sqlQueryEnumerable = connection.CreateCommand("select * from FullTip where hobbyName = '" + theHobby.hobbyName + "'").ExecuteDeferredQuery<FullTip>();
+
+
+                foreach (var row in sqlQueryEnumerable)
                 {
-                    
+                    Debug.WriteLine(row.title);
+                    tips.Add(row);
                 }
-                        
+
+                listTips.ItemsSource = tips;
+
             }
-
-
-                BindingContext = this;
-
-
-            
         }
 
         private void addNewTip_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AddTip(theHobby, tipsList, fullTipsList));
+            Navigation.PushAsync(new AddTip(theHobby));
         }
 
         private void listTips_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Console.WriteLine(listTips.SelectedItem);
+            FullTip selectedTip = (FullTip)listTips.SelectedItem;
 
-            foreach (FullTip x in fullTipsList)
+            foreach (FullTip tip in tips)
             {
-                Console.WriteLine("Deze: " + x.tip.title + " " + listTips.SelectedItem);
-                if (listTips.SelectedItem.ToString() == x.tip.title)
+                Console.WriteLine("Deze: " + tip.tipId + " " + selectedTip.tipId);
+                if (selectedTip.tipId == tip.tipId)
                 {
-                    Console.WriteLine("yay");
-                    FullTip tip = x;
                     Navigation.PushAsync(new ShowTip(tip));
                 }
             }

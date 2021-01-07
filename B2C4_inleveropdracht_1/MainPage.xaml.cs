@@ -17,7 +17,7 @@ namespace B2C4_inleveropdracht_1
 
         private void beginButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new HobbyPage(null));
+            Navigation.PushAsync(new HobbyPage());
         }
     }
 }

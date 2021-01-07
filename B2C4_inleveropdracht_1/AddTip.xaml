@@ -21,6 +21,8 @@
             
             <Entry x:Name="tipLink" HorizontalOptions="Center" WidthRequest="200" HorizontalTextAlignment="Center" Placeholder="Link(http://example.com)"></Entry>
             <Label HorizontalOptions="Center" WidthRequest="200" HorizontalTextAlignment="Center" Text="In the future, you will be able to upload an image here"></Label>
+            <Button x:Name="imageUploader" Text="Upload Image" Clicked="imageUploader_Clicked"></Button>
+            <Label x:Name="imageToUpload" Text=""></Label>
 
             <Entry HorizontalOptions="Center" Margin="10,10,10,10" WidthRequest="300" HorizontalTextAlignment="Center" x:Name="tipInfo" Placeholder="Type your tip here"></Entry>
 

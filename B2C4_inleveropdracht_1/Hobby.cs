@@ -9,11 +9,9 @@ namespace B2C4_inleveropdracht_1
     {
         [PrimaryKey, AutoIncrement]
         public int hobbyId { get; set; }
+
+        [MaxLength(250)]
         public string hobbyName { get; set; }
 
-        public Hobby(string _hobbyName)
-        {
-            this.hobbyName = _hobbyName;
-        }
     }
 }

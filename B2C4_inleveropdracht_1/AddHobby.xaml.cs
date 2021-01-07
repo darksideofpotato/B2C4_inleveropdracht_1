@@ -13,16 +13,15 @@ namespace B2C4_inleveropdracht_1
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddHobby : ContentPage
     {
-        static IList<Hobby> currentHobbies;
-        public AddHobby(IList<Hobby> hobbyList)
+        public AddHobby()
         {
             InitializeComponent();
-            currentHobbies = hobbyList;
         }
 
         private void btnAddHobby_Clicked(object sender, EventArgs e)
         {
-            Hobby newHobby = new Hobby(hobbyName.Text) { hobbyName = hobbyName.Text };
+            string insertedHobbyName = hobbyName.Text;
+            Hobby newHobby = new Hobby() { hobbyName = insertedHobbyName};
 
             using(SQLiteConnection connection = new SQLiteConnection(App.DatabaseLocation)){
                 connection.CreateTable<Hobby>();
@@ -37,8 +36,7 @@ namespace B2C4_inleveropdracht_1
                     DisplayAlert("Failure", "Hobby failed to insert", "Ok");
                 }
             }
-            currentHobbies.Add(newHobby);
-            Navigation.PushAsync(new HobbyPage(currentHobbies));
+            Navigation.PushAsync(new HobbyPage());
         }
     }
 }

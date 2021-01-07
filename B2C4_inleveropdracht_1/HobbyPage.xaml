@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label x:Name="infoLabel" LineBreakMode="WordWrap" FontSize="16" Text="Select one of the hobbies listed below to check the tips and info given by our communoity" WidthRequest="350" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
-            <ListView x:Name="listHobbies" HasUnevenRows="True" ItemsSource="{Binding hobbyList}" ItemSelected="ListView_ItemSelected" >
+            <ListView x:Name="listHobbies" HasUnevenRows="True" ItemSelected="ListView_ItemSelected" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
