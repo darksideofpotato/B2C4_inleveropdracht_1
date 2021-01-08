@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B2C4_inleveropdracht_1.Andr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B2C4_inleveropdracht_1.iOS", "B2C4_inleveropdracht_1.iOS\B2C4_inleveropdracht_1.iOS.csproj", "{848B8FBA-B31E-4B4F-AD56-0FEAFF0A9297}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B2C4_inleveropdracht_1", "B2C4_inleveropdracht_1\B2C4_inleveropdracht_1.csproj", "{D88937E8-C4C5-4F7C-A9EB-1D93206FF759}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B2C4_inleveropdracht_1", "B2C4_inleveropdracht_1\B2C4_inleveropdracht_1.csproj", "{D88937E8-C4C5-4F7C-A9EB-1D93206FF759}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

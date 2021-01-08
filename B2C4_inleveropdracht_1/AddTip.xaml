@@ -4,7 +4,7 @@
              x:Class="B2C4_inleveropdracht_1.AddTip" Title="Add a tip">
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="lblWelcome" HorizontalOptions="Center" Margin="10,10,10,10" Text=""></Label>
+            <Label x:Name="lblWelcome" HorizontalOptions="Center" Margin="10,10,10,10" Text="Add a tip"></Label>
 
             <Entry x:Name="title" Placeholder="Title" HorizontalOptions="Center" WidthRequest="200" HorizontalTextAlignment="Center"></Entry>
             <Entry x:Name="description" HorizontalOptions="Center" WidthRequest="200" HorizontalTextAlignment="Center" Placeholder="Description"></Entry>
@@ -18,10 +18,9 @@
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
-            
+
             <Entry x:Name="tipLink" HorizontalOptions="Center" WidthRequest="200" HorizontalTextAlignment="Center" Placeholder="Link(http://example.com)"></Entry>
-            <Label HorizontalOptions="Center" WidthRequest="200" HorizontalTextAlignment="Center" Text="In the future, you will be able to upload an image here"></Label>
-            <Button x:Name="imageUploader" Text="Upload Image" Clicked="imageUploader_Clicked"></Button>
+            <Button x:Name="imageUploader" Margin="0,20,0,0" HorizontalOptions="Center" TextColor="White" CornerRadius="50" BackgroundColor="Orchid" Text="Upload Image" Clicked="imageUploader_Clicked"></Button>
             <Label x:Name="imageToUpload" Text=""></Label>
 
             <Entry HorizontalOptions="Center" Margin="10,10,10,10" WidthRequest="300" HorizontalTextAlignment="Center" x:Name="tipInfo" Placeholder="Type your tip here"></Entry>

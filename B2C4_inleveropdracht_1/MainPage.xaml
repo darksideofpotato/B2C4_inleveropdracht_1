@@ -4,7 +4,7 @@
              x:Class="B2C4_inleveropdracht_1.MainPage">
 
     <StackLayout>
-        <Image Source="placeholder.png" WidthRequest="150" Margin="20,20,20,20"></Image>
+        <Image Source="tip.png" WidthRequest="150" Margin="20,20,20,20"></Image>
 
         <Label x:Name="titleLabel2" Text="Welcome to Tip Sharing!" TextColor="Gray" HorizontalOptions="Center" FontSize="24" Margin="0,30,0,10" LineBreakMode="WordWrap" ></Label>
 
@@ -12,6 +12,6 @@
 
         <Button x:Name="beginButton" Text="Check hobbies" WidthRequest="150" HorizontalOptions="Center" BackgroundColor="#2196F3" TextColor="white" Margin="0,40,0,0" Clicked="beginButton_Clicked"></Button>
 
-        <Label x:Name="titleLabel" Text="Under Construction" TextColor="Gray" HorizontalOptions="Center" FontSize="24" Margin="0,30,0,10" LineBreakMode="WordWrap" ></Label>
+
     </StackLayout>
 </ContentPage>

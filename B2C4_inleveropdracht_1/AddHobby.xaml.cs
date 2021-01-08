@@ -20,6 +20,11 @@ namespace B2C4_inleveropdracht_1
 
         private void btnAddHobby_Clicked(object sender, EventArgs e)
         {
+            // Wanneer op de button geclicked wordt, maakt het programma 
+            // een object aan van de class Hobby, die hij vervolgens
+            // in de database insert. De gebruiker krijgt een melding op basis 
+            // van of dit goed gegaan is of niet.
+
             string insertedHobbyName = hobbyName.Text;
             Hobby newHobby = new Hobby() { hobbyName = insertedHobbyName};
 
@@ -36,6 +41,8 @@ namespace B2C4_inleveropdracht_1
                     DisplayAlert("Failure", "Hobby failed to insert", "Ok");
                 }
             }
+
+            // Na het invoegen wordt de gebruiker teruggeleid naar de hobbypagina.
             Navigation.PushAsync(new HobbyPage());
         }
     }

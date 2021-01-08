@@ -4,7 +4,16 @@
              x:Class="B2C4_inleveropdracht_1.HorsePage" Title="Tips">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="listTips" HasUnevenRows="True" ItemsSource="{Binding tipsList}" ItemSelected="listTips_ItemSelected" >
+            <SearchBar x:Name="searchForTips" TextChanged="searchForTips_TextChanged" Placeholder="Search for a tip" />
+            <FlexLayout>
+               
+            <Entry x:Name="changeHobbyTitle" HorizontalOptions="Start" WidthRequest="300">
+             </Entry>
+                <Button x:Name="updateHobby" Margin="30,0,5,0" Text="^" TextColor="White" CornerRadius="50" Clicked="updateHobby_Clicked" BackgroundColor="Orange" FontSize="10" WidthRequest="30" HeightRequest="30" HorizontalOptions="End"></Button>
+                <Button x:Name="deleteHobby" Text="x" TextColor="White" CornerRadius="50" Clicked="deleteHobby_Clicked" BackgroundColor="Red" FontSize="10" WidthRequest="30" HeightRequest="30" HorizontalOptions="End"></Button>
+            </FlexLayout>
+
+                <ListView x:Name="listTips" HasUnevenRows="True" ItemsSource="{Binding tipsList}" ItemSelected="listTips_ItemSelected" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -37,6 +46,8 @@
                 </ListView.ItemTemplate>
             </ListView>
             <Button x:Name="addNewTip" Text="+" TextColor="White" CornerRadius="50" Clicked="addNewTip_Clicked" BackgroundColor="Orchid" FontSize="40" WidthRequest="70" HeightRequest="70" Margin="0,0,30,30" HorizontalOptions="End"></Button>
+
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -4,7 +4,9 @@
              x:Class="B2C4_inleveropdracht_1.HobbyPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="infoLabel" LineBreakMode="WordWrap" FontSize="16" Text="Select one of the hobbies listed below to check the tips and info given by our communoity" WidthRequest="350" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
+            <SearchBar x:Name="searchHobby" Placeholder="Search for a hobby" TextChanged="searchHobby_TextChanged" HorizontalTextAlignment="Center"/>
+            <Label x:Name="infoLabel" LineBreakMode="WordWrap" Margin="0,20,0,20" FontSize="16" Text="Select one of the hobbies listed below to check the tips and info given by our communoity" WidthRequest="350" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
+           
             <ListView x:Name="listHobbies" HasUnevenRows="True" ItemSelected="ListView_ItemSelected" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -29,6 +31,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+       
             <Button x:Name="addNewHobby" Text="+" TextColor="White" CornerRadius="50" Clicked="addNewHobby_Clicked" BackgroundColor="Orchid" FontSize="40" WidthRequest="70" HeightRequest="70" Margin="0,0,30,30" HorizontalOptions="End"></Button>
         </StackLayout>
     </ContentPage.Content>
